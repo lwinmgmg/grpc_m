@@ -2,7 +2,7 @@
 """Client and server classes corresponding to protobuf-defined services."""
 import grpc
 
-import user_go_pb2 as user__go__pb2
+from user_go import user_go_pb2 as user__go_dot_user__go__pb2
 
 
 class UserServiceStub(object):
@@ -16,8 +16,8 @@ class UserServiceStub(object):
         """
         self.CheckToken = channel.unary_unary(
                 '/UserService/CheckToken',
-                request_serializer=user__go__pb2.Token.SerializeToString,
-                response_deserializer=user__go__pb2.InternalUser.FromString,
+                request_serializer=user__go_dot_user__go__pb2.Token.SerializeToString,
+                response_deserializer=user__go_dot_user__go__pb2.InternalUser.FromString,
                 )
 
 
@@ -35,8 +35,8 @@ def add_UserServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
             'CheckToken': grpc.unary_unary_rpc_method_handler(
                     servicer.CheckToken,
-                    request_deserializer=user__go__pb2.Token.FromString,
-                    response_serializer=user__go__pb2.InternalUser.SerializeToString,
+                    request_deserializer=user__go_dot_user__go__pb2.Token.FromString,
+                    response_serializer=user__go_dot_user__go__pb2.InternalUser.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -60,7 +60,7 @@ class UserService(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/UserService/CheckToken',
-            user__go__pb2.Token.SerializeToString,
-            user__go__pb2.InternalUser.FromString,
+            user__go_dot_user__go__pb2.Token.SerializeToString,
+            user__go_dot_user__go__pb2.InternalUser.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

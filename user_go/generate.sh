@@ -12,6 +12,6 @@ poetry install
 
 source .venv/bin/activate
 
-python -m grpc_tools.protoc -I. --python_out=python --pyi_out=python --grpc_python_out=python user_go.proto
+python -m grpc_tools.protoc -Iuser_go=. --python_out=python --pyi_out=python --grpc_python_out=python user_go.proto
 
 deactivate

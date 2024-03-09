@@ -1,9 +1,9 @@
 [tool.poetry]
 name = "user-go"
-version = "0.1.1"
+version = "0.1.2"
 description = ""
 authors = ["Lwin Maung Maung <lwinmaungmaung.ytu@gmail.com>"]
-packages = [{ include = "python", to = "user_go" }]
+packages = [{ include = "user_go", from = "python" }]
 
 [tool.poetry.dependencies]
 python = "^3.11"
