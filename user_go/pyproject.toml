@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "user-go"
+version = "0.1.1"
+description = ""
+authors = ["Lwin Maung Maung <lwinmaungmaung.ytu@gmail.com>"]
+packages = [{ include = "python", to = "user_go" }]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+grpcio = "^1.62.1"
+grpcio-tools = "^1.62.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

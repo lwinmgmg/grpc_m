@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+option go_package = "github.com/lwinmgmg/grpc_m/user_go";
+
+message Token{
+    string token = 1;
+}
+
+message InternalUser{
+    string username = 1;
+    string email = 2;
+    string code = 3;
+}
+
+service UserService {
+    rpc CheckToken(Token) returns (InternalUser) {}
+}
