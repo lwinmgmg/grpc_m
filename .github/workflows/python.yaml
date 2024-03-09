@@ -1,0 +1,25 @@
+name: Build and Upload Package (Python)
+
+# Trigger the workflow on pushes to a specific branch (modify if needed)
+on:
+  push:
+    branches: [ "master" ]
+    tags: [ "*" ]
+
+# Define the jobs for this workflow
+jobs:
+  build:
+    runs-on: ubuntu-latest  # This workflow will run on Ubuntu virtual machines
+    container: lwinmgmg/poetry:3.11.8-1.8.0
+    steps:
+      - uses: actions/checkout@v4  # Checkout the repository code
+
+      # Build or create your package here (replace with your specific commands)
+
+      - name: Build Source Archive (Example)  # Modify or remove if not applicable
+        run: cd user_go && poetry build -f sdist
+
+      - uses: actions/upload-artifact@v4  # Upload the built package as an artifact
+        with:
+          name: user_go  # Artifact name
+          path: ./user_go/dist  # Path to the built package (modify if needed)
