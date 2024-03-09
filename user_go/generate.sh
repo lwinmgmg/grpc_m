@@ -8,6 +8,10 @@ python -m venv .venv
 
 export PYTHON_KEYRING_BACKEND=keyring.backends.null.Keyring
 
-poetry install
+poetry install 
+
+source .venv/bin/activate
 
 python -m grpc_tools.protoc -I. --python_out=python --pyi_out=python --grpc_python_out=python user_go.proto
+
+deactivate
